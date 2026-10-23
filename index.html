@@ -39,8 +39,10 @@
   --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
   --story:"Instrument Serif",Georgia,"Times New Roman",serif;
   color-scheme:dark;
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 2h10v10h-2.2V5.8L3.6 14 2 12.4l8.2-8.2H4z' fill='black'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
+.ar{display:inline-block;width:.62em;height:.62em;margin-left:.1em;vertical-align:-.02em;background:currentColor;-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat}
 html{background:var(--ink)}
 body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
@@ -60,7 +62,7 @@ h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.035em;line-hei
 .nav a{background:var(--sun);color:var(--sun-ink);font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.02em;padding:7px 11px 8px;line-height:1;border-radius:2px;transition:transform .15s,background .15s}
 .nav a:hover{transform:translateY(-2px) rotate(-1.5deg)}
 .nav a[aria-current="page"]{background:var(--paper);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
-.nav a.ext::after{content:" ↗";font-weight:500}
+.nav a.ext::after{content:"";display:inline-block;width:.62em;height:.62em;margin-left:.35em;vertical-align:-.02em;background:currentColor;-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat;font-weight:500}
 @media (max-width:860px){
   .bar .wrap{flex-direction:column;align-items:flex-start;gap:10px;padding-block:12px}
   .nav{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:none}
@@ -314,11 +316,13 @@ body.kitap-on .kitap-slot{flex:1;width:100%;display:grid;align-content:center;pa
 .srow{display:grid;grid-template-columns:112px minmax(0,1fr);gap:4px 22px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
 .srow .scov{position:relative;display:block;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.45);transform:rotate(-1.5deg);transition:transform .25s,box-shadow .25s}
 .srow .scov img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px}
+.srow .scov .play::before{content:"";display:block;width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent var(--sun-ink);margin-left:2px}
 .srow .scov .play{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;background:var(--sun);color:var(--sun-ink);display:grid;place-items:center;font-size:13px;padding-left:2px;opacity:0;transform:scale(.8);transition:opacity .2s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.5)}
 .srow .scov:hover,.srow .scov:focus-visible{transform:rotate(0) scale(1.05);box-shadow:0 16px 34px rgba(0,0,0,.6)}
 .srow .scov:hover .play,.srow .scov:focus-visible .play{opacity:1;transform:none}
 .srow .scov:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
-@media (hover:none){.srow .scov .play{opacity:1;transform:none;width:26px;height:26px;font-size:10px;right:6px;bottom:6px}}
+@media (hover:none){.srow .scov .play::before{content:"";display:block;width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent var(--sun-ink);margin-left:2px}
+.srow .scov .play{opacity:1;transform:none;width:26px;height:26px;right:6px;bottom:6px}.srow .scov .play::before{border-width:5px 0 5px 8px}}
 .srow:nth-child(odd) .scov{transform:rotate(1.5deg)}
 .srow .code{display:block;margin-bottom:6px}
 .srow:last-child{border-bottom:1px solid var(--line)}
@@ -425,10 +429,10 @@ body.kitap-on .kitap-slot{flex:1;width:100%;display:grid;align-content:center;pa
         <button class="copy" type="button" data-copy="selam@barkindeniz.com">Adresi kopyala</button>
       </div>
       <div class="soc">
-        <a href="https://www.instagram.com/barkinout" target="_blank" rel="noopener">Instagram ↗</a>
-        <a href="https://www.youtube.com/barkinout" target="_blank" rel="noopener">YouTube ↗</a>
-        <a href="https://x.com/barkindeniz" target="_blank" rel="noopener">X ↗</a>
-        <a href="https://medium.com/@barkindeniz" target="_blank" rel="noopener">Medium ↗</a>
+        <a href="https://www.instagram.com/barkinout" target="_blank" rel="noopener">Instagram <i class="ar" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/barkinout" target="_blank" rel="noopener">YouTube <i class="ar" aria-hidden="true"></i></a>
+        <a href="https://x.com/barkindeniz" target="_blank" rel="noopener">X <i class="ar" aria-hidden="true"></i></a>
+        <a href="https://medium.com/@barkindeniz" target="_blank" rel="noopener">Medium <i class="ar" aria-hidden="true"></i></a>
       </div>
     </div>
     <div class="fine"><span>© Barkın Deniz · Öykücü</span><span>Kimse istemedi. Yine de yaptım.</span></div>
@@ -552,7 +556,7 @@ document.getElementById("works").innerHTML = PROJECTS.map(p => `
   </a>`).join("");
 
 /* proje sayfaları */
-const btns = links => links.map(([t,u]) => u && u[0] === "#" ? `<a class="btn" href="${esc(u)}" data-go="${esc(u.slice(1))}">${esc(t)} →</a>` : u ? `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>` : `<span class="btn soon" title="Bağlantı yakında">${esc(t)} <small>yakında</small></span>`).join("");
+const btns = links => links.map(([t,u]) => u && u[0] === "#" ? `<a class="btn" href="${esc(u)}" data-go="${esc(u.slice(1))}">${esc(t)} →</a>` : u ? `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} <i class="ar" aria-hidden="true"></i></a>` : `<span class="btn soon" title="Bağlantı yakında">${esc(t)} <small>yakında</small></span>`).join("");
 PROJECTS.forEach((p, i) => {
   const prev = PROJECTS[(i + PROJECTS.length - 1) % PROJECTS.length], next = PROJECTS[(i + 1) % PROJECTS.length];
   let extra = "";
@@ -577,7 +581,7 @@ PROJECTS.forEach((p, i) => {
           <p class="alt">${esc(p.alt)}</p>
           <dl class="kunye">${p.kunye.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
           <div class="story">${p.story.map(s=>`<p>${esc(s)}</p>`).join("")}</div>
-          ${p.seasons ? `<div class="smini"><h3>Sezonlar<span>.</span></h3>${p.seasons.map(([c,k,d,im,u])=>`<article class="srow"><a class="scov" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(c)} sezonunu Spotify'da dinle"><img src="img/${im}.webp" alt="Barkın Out ${esc(c)} kapağı" width="480" height="480" loading="lazy"><span class="play" aria-hidden="true">▶</span></a><div><span class="code">${esc(c)}</span><span class="k">${esc(k)}</span><p>${esc(d)}</p></div></article>`).join("")}</div>` : ""}
+          ${p.seasons ? `<div class="smini"><h3>Sezonlar<span>.</span></h3>${p.seasons.map(([c,k,d,im,u])=>`<article class="srow"><a class="scov" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(c)} sezonunu Spotify'da dinle"><img src="img/${im}.webp" alt="Barkın Out ${esc(c)} kapağı" width="480" height="480" loading="lazy"><span class="play" aria-hidden="true"></span></a><div><span class="code">${esc(c)}</span><span class="k">${esc(k)}</span><p>${esc(d)}</p></div></article>`).join("")}</div>` : ""}
           ${p.quote ? `<blockquote class="quote"><p>${esc(p.quote[0])}</p><cite>— ${esc(p.quote[1])}</cite></blockquote>` : ""}
         </div>
         <aside class="side">
@@ -681,7 +685,7 @@ document.addEventListener("keydown", e => { if (LB.hidden) return; if (e.key ===
   function pg(k, side){
     const p = P[k]; if (!p) return "";
     if (p.t === "cover") return `<div class="pg cover ${side}"><div><span class="k">Barkın Out Podcast</span><h3>Barkın<br>Out.</h3></div><div class="fr"><img src="img/cizgi-kapak.webp" alt="Barkın Out karakterleri kamp ateşi başında, kırmızı dolunayın altında" width="1600" height="900" draggable="false"></div><div class="ft"><span>Karikatürler</span><span>${STORIES.length} hikâye</span></div></div>`;
-    if (p.t === "back") return `<div class="pg back ${side}"><div><span class="k">Devamı</span><h3>Instagram'da.</h3><a href="https://www.instagram.com/barkinoutpodcast" target="_blank" rel="noopener">@barkinoutpodcast ↗</a></div></div>`;
+    if (p.t === "back") return `<div class="pg back ${side}"><div><span class="k">Devamı</span><h3>Instagram'da.</h3><a href="https://www.instagram.com/barkinoutpodcast" target="_blank" rel="noopener">@barkinoutpodcast <i class="ar" aria-hidden="true"></i></a></div></div>`;
     if (p.t === "intro") return `<div class="pg intro ${side}"><span class="k">Önsöz</span><div class="tx"><h3>${esc(INTRO.title)}</h3>${INTRO.text.map(t => `<p>${esc(t)}</p>`).join("")}</div><div class="sg"><span>${esc(INTRO.credit)}</span><span>— ${esc(INTRO.sign)}</span></div></div>`;
     if (p.t === "title") return `<div class="pg ttl ${side}"><span class="k">Hikâye ${String(p.s + 1).padStart(2, "0")} / ${String(STORIES.length).padStart(2, "0")}</span><h3>${esc(p.name)}.</h3><span class="c">${p.cnt} kare</span></div>`;
     return `<div class="pg ${side}"><div class="art"><img src="img/${p.img}.webp" alt="${esc(p.alt)}" width="${p.w}" height="${p.h}" draggable="false"></div><div class="no">${k}</div></div>`;
