@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barkın Deniz</title>
+<meta name="description" content="Barkın Deniz — öykücü, Beyoğlu / İstanbul. Öngörülemeyen Sonuçlar belgeseli, hamduyum. ses draması, Kahraman Yaratmak atölyesi ve Barkın Out podcast.">
+<meta name="theme-color" content="#0c0c0a">
+<link rel="canonical" href="https://barkindeniz.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Barkın Deniz">
+<meta property="og:title" content="Barkın Deniz — Kimse istemedi. Yine de yaptım.">
+<meta property="og:description" content="Barkın Deniz — öykücü, Beyoğlu / İstanbul. Öngörülemeyen Sonuçlar belgeseli, hamduyum. ses draması, Kahraman Yaratmak atölyesi ve Barkın Out podcast.">
+<meta property="og:url" content="https://barkindeniz.com/">
+<meta property="og:image" content="https://barkindeniz.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@barkindeniz">
+<meta name="twitter:image" content="https://barkindeniz.com/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4ee3b'/%3E%3Ctext x='31' y='47' font-family='Arial,Helvetica,sans-serif' font-weight='900' font-size='44' text-anchor='middle' fill='%2311110d'%3EB%3C/text%3E%3Ccircle cx='51' cy='45' r='4' fill='%2311110d'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: bir öykücünün duvarı — kara zemin, limon sarısı etiketler, afişler hafif eğik iğnelenmiş; her iş kendi sayfasında künye + öykü + afiş */
+:root{
+  --ink:#0c0c0a;        /* zemin: sıcak siyah */
+  --ink-2:#151512;      /* yükseltilmiş yüzey */
+  --line:#2a2a24;       /* ince çizgi */
+  --paper:#f3f0e6;      /* metin */
+  --mute:#9a968a;       /* ikincil metin */
+  --sun:#f4ee3b;        /* Barkın sarısı */
+  --sun-ink:#11110d;    /* sarı üstünde metin */
+  --head:"Wix Madefor Display","Helvetica Neue",Arial,sans-serif;  /* başlıklar */
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;  /* arayüz */
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --story:"Instrument Serif",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.035em;line-height:.98;margin:0;text-wrap:balance;overflow-wrap:break-word}
+.lab{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* ---------- üst bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.mark{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.04em;white-space:nowrap}
+.mark span{color:var(--sun)}
+.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{background:var(--sun);color:var(--sun-ink);font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.02em;padding:7px 11px 8px;line-height:1;border-radius:2px;transition:transform .15s,background .15s}
+.nav a:hover{transform:translateY(-2px) rotate(-1.5deg)}
+.nav a[aria-current="page"]{background:var(--paper);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.nav a.ext::after{content:" ↗";font-weight:500}
+@media (max-width:860px){
+  .bar .wrap{flex-direction:column;align-items:flex-start;gap:10px;padding-block:12px}
+  .nav{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto;font-size:14px}
+}
+
+/* ---------- görünümler ---------- */
+.view{display:none}
+.view.on{display:block;animation:in .45s ease}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}.nav a:hover,.work:hover .poster{transform:none!important}}
+/* ---------- ana sayfa ---------- */
+.hero{padding-block:72px 56px;display:grid;gap:28px}
+.hero h1{font-size:clamp(38px,5.6vw,86px);line-height:1;letter-spacing:-.04em}
+.hero h1 em{font-style:normal;color:var(--sun);display:block}
+.hero .sub{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end;max-width:100%}
+.hero .sub p{margin:0;font-size:20px;line-height:1.5;color:var(--paper);max-width:46ch}
+.hero .sub p b{font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:var(--sun-ink);font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.02em;padding:13px 20px 14px;border-radius:999px;line-height:1;transition:transform .15s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--paper)}
+.btn.soon{background:transparent;color:var(--mute);box-shadow:inset 0 0 0 1.5px var(--line);cursor:default}
+.btn.soon:hover{transform:none}
+.btn.soon small{font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:640px){.hero{padding-block:44px 36px}.hero .sub{grid-template-columns:1fr}.hero .sub p{font-size:18px}}
+
+
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-block:72px 28px}
+.sec-h h2{font-size:clamp(34px,4.4vw,60px);color:var(--sun)}
+.sec-h p{margin:0;color:var(--mute);font-size:16px;text-align:right}
+.works{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 22px;padding-bottom:110px}
+.work{display:grid;gap:14px;align-content:start}
+.work .poster{border-radius:18px;overflow:hidden;aspect-ratio:5/7;max-width:100%;transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.work .poster img{width:100%;height:100%;object-fit:cover}
+.work:hover .poster,.work:focus-visible .poster{transform:rotate(0deg) translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+.work .meta{display:grid;gap:3px;min-width:0}
+.work .tag{font-family:var(--display);font-weight:700;font-size:14px;color:var(--sun);letter-spacing:-.01em}
+.work .t{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.03em;line-height:1.1}
+.work .d{font-size:14px;color:var(--mute)}
+@media (max-width:980px){.works{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 18px}}
+@media (max-width:420px){.works{grid-template-columns:1fr}.work .poster{max-width:340px}}
+
+.teaser{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;align-items:center;padding-block:20px 110px;border-top:1px solid var(--line);padding-top:64px}
+.teaser blockquote{margin:0;font-family:var(--story);font-style:italic;font-size:clamp(30px,3.8vw,50px);line-height:1.12;letter-spacing:-.01em}
+.teaser blockquote b{font-style:normal;font-family:var(--display);font-weight:800;color:var(--sun);letter-spacing:-.04em}
+.teaser .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.teaser .ph{justify-self:end;width:min(100%,320px)}
+@media (max-width:760px){.teaser{grid-template-columns:1fr}.teaser .ph{justify-self:start;width:min(70%,260px)}}
+
+/* ---------- portre ---------- */
+.portrait{border-radius:34px;overflow:hidden;transform:rotate(var(--r,7deg));box-shadow:0 30px 60px rgba(0,0,0,.6);aspect-ratio:916/1246;max-width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- ben barkın ---------- */
+.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start;padding-block:72px 120px}
+.about h1{font-size:clamp(56px,8.5vw,128px);color:var(--sun)}
+.about .lead{font-family:var(--display);font-weight:700;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.03em;line-height:1.15;margin:26px 0 30px}
+.about .txt p{margin:0 0 1.15em;font-size:18px;line-height:1.65;max-width:62ch;color:var(--paper)}
+.about .txt p.dim{color:var(--mute)}
+.about .ph{position:sticky;top:110px;padding:18px}
+.mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:10px}
+.mail{font-family:var(--story);font-style:italic;font-size:26px;color:var(--sun);user-select:all;word-break:break-all}
+.copy{background:transparent;border:1.5px solid var(--line);color:var(--paper);font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:999px;cursor:pointer}
+.copy:hover{border-color:var(--paper)}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:30px;padding-block:48px 90px}.about .ph{position:static;max-width:300px;padding:10px}}
+
+/* ---------- işler sayfası ---------- */
+.kitap-head{max-width:1880px;margin-inline:auto;padding:18px max(16px,3vw) 14px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.kitap-head h1{margin:0;font-size:clamp(24px,2.4vw,34px);color:var(--sun)}
+.kitap-head h1 span{color:var(--paper)}
+.kitap-head .back{font:700 15px/1 var(--display);color:var(--paper);text-decoration:none;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px}
+.kitap-head .back:hover{border-color:var(--sun);color:var(--sun)}
+.kitap-slot{max-width:1880px;margin-inline:auto;padding:0 max(16px,3vw) 40px}
+.comic.big .czoom.full{display:none}
+body.kitap-on header.bar,body.kitap-on footer.foot{display:none}
+body.kitap-on .kitap-head{padding-block:12px 10px;width:100%;box-sizing:border-box}
+body.kitap-on #v-kitap.on{min-height:calc(100vh - 24px);min-height:calc(100svh - 24px);display:flex;flex-direction:column}
+body.kitap-on .kitap-slot{flex:1;width:100%;display:grid;align-content:center;padding-bottom:24px}
+.comic.big{gap:10px;padding-top:0}
+.comic.big .chint{display:none}
+.comic.side .cbar .cb{position:absolute;top:calc(var(--bh,0px) / 2);transform:translateY(-50%);z-index:5;width:54px;height:54px;font-size:24px}
+.comic.side .cbar .cb:hover{transform:translateY(-50%) scale(1.06)}
+.comic.side .cbar .cb:disabled{transform:translateY(-50%)}
+.comic.side .cbar .pv{left:0}
+.comic.side .cbar .nx{right:0}
+.wk-head{padding-block:56px 22px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.wk-head h1{font-size:clamp(34px,4.4vw,60px);color:var(--sun)}
+.wk-head h1 span{color:var(--paper)}
+.wk-head p{margin:0;color:var(--mute);font-size:16px}
+.wtabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;border-bottom:1px solid var(--line)}
+.wtab{display:flex;gap:12px;align-items:center;padding:10px 12px 12px;border-radius:12px 12px 0 0;border-bottom:3px solid transparent;margin-bottom:-1px;opacity:.55;transition:opacity .2s,background .2s;min-width:0}
+.wtab:hover{opacity:.9}
+.wtab[aria-selected="true"]{opacity:1;background:var(--ink-2);border-bottom-color:var(--sun)}
+.wtab img{width:40px;height:auto;aspect-ratio:5/7;object-fit:cover;border-radius:5px;flex:0 0 auto}
+.wtab > span{display:grid;gap:1px;min-width:0}
+.wtab .tg{font-family:var(--display);font-weight:700;font-size:13px;color:var(--sun)}
+.wtab .tt{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.02em;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wpane{display:none}
+.wpane.on{display:block;animation:in .35s ease}
+.ptitle{font-size:clamp(38px,5vw,76px);color:var(--sun);display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.ptitle .soon-b{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:clamp(13px,1.1vw,15px);letter-spacing:.16em;text-transform:uppercase;line-height:1;color:var(--sun);padding:8px 13px 8px 11px;border:1.5px solid var(--sun);border-radius:999px;transform:translateY(.12em)}
+.ptitle .soon-b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sun);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.ptitle .soon-b::before{animation:none}}
+@media (max-width:760px){.wtabs{grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:0;gap:6px}.wtab{border-radius:10px;border:1px solid var(--line);margin:0}.wtab[aria-selected="true"]{border-color:var(--sun)}.wtab img{width:32px}.wtab .tt{font-size:15px}}
+/* ---------- karikatür kitapçığı ---------- */
+.comic{position:relative;display:grid;justify-items:center;gap:16px;padding-top:6px;user-select:none;-webkit-user-select:none}
+.book{--pp:#fbf7ec;position:relative;width:var(--bw,0px);height:var(--ph,0px);perspective:2600px;transition:transform .8s cubic-bezier(.42,.03,.26,1);touch-action:pan-y;cursor:pointer;outline:none}
+.book.nt{transition:none}
+.book:focus-visible{box-shadow:0 0 0 3px var(--sun);border-radius:8px}
+.book .slot,.book .leaf{position:absolute;top:0;width:var(--pw);height:var(--ph)}
+.book .slot.l{left:0}
+.book .slot.r,.book .leaf{left:var(--rx)}
+.book .slot.empty{visibility:hidden}
+.book .slot.r{border-radius:0 7px 7px 0;box-shadow:1px 0 0 #d8d0bb,3px 1px 0 #f4efe1,4px 1px 0 #d2c9b2,6px 2px 0 #efe9d9,7px 2px 0 #cbc1a8,0 26px 60px rgba(0,0,0,.6)}
+.book .slot.l{border-radius:7px 0 0 7px;box-shadow:-1px 0 0 #d8d0bb,-3px 1px 0 #f4efe1,-4px 1px 0 #d2c9b2,-6px 2px 0 #efe9d9,-7px 2px 0 #cbc1a8,0 26px 60px rgba(0,0,0,.6)}
+.book .leaf{transform-origin:left center;transform-style:preserve-3d;z-index:3;display:none}
+.book .leaf.on{display:block}
+.book .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 7px 7px 0;overflow:hidden}
+.book .face.b{transform:rotateY(180deg);border-radius:7px 0 0 7px}
+.book .face .sh{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.42))}
+.book .face.b .sh{background:linear-gradient(270deg,rgba(0,0,0,.05),rgba(0,0,0,.42))}
+.slot .pg,.face .pg{position:absolute;inset:0;border-radius:inherit}
+.slot.r,.slot.l{overflow:visible}
+.slot.r .pg{border-radius:0 7px 7px 0}.slot.l .pg{border-radius:7px 0 0 7px}
+.pg{background:var(--pp);overflow:hidden;display:grid;grid-template-rows:minmax(0,1fr) auto;padding:7% 7% 3%;container-type:inline-size;color:var(--sun-ink)}
+.pg::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit}
+.pg.R::after{background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,.05) 3%,transparent 9%)}
+.pg.L::after{background:linear-gradient(270deg,rgba(0,0,0,.2),rgba(0,0,0,.05) 3%,transparent 9%)}
+.pg .art{position:relative;min-height:0}
+.pg .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;pointer-events:none}
+.pg .no{font:600 max(10px,2.6cqw)/1 var(--body);letter-spacing:.18em;color:#8d8778;text-align:center;padding-top:3.4cqw}
+.pg.blank{padding:0}
+.pg.cover{background:var(--sun);grid-template-rows:auto minmax(0,1fr) auto;gap:4cqw;padding:8% 8% 7%}
+.pg.cover .k{font:700 max(10px,2.7cqw)/1 var(--body);letter-spacing:.22em;text-transform:uppercase}
+.pg.cover h3{margin:2.2cqw 0 0;font:800 15.5cqw/.86 var(--head);letter-spacing:-.045em}
+.pg.cover .fr{position:relative;min-height:0;display:grid;place-items:center}
+.pg.cover .fr img{width:100cqw;max-width:none;height:auto;object-fit:contain;border:max(3px,.9cqw) solid var(--sun-ink);border-radius:1.4cqw;transform:rotate(-2.5deg);box-shadow:2cqw 2.4cqw 0 rgba(17,17,13,.9)}
+.pg.cover .ft{display:flex;justify-content:space-between;align-items:baseline;font:700 max(10px,3cqw)/1 var(--display);letter-spacing:-.01em}
+.pg.cover .ft span:last-child{font:600 max(9px,2.4cqw)/1 var(--body);letter-spacing:.16em;text-transform:uppercase}
+.pg.intro{grid-template-rows:auto 1fr auto;padding:9% 9% 7%}
+.pg.intro .k{font:700 max(10px,2.7cqw)/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:#8d8778}
+.pg.intro .tx{align-self:center;display:grid;gap:2.4cqw}
+.pg.intro h3{margin:0 0 1.6cqw;font:800 11cqw/.9 var(--head);letter-spacing:-.04em;color:var(--sun-ink)}
+.pg.intro h3::after{content:"";display:block;width:14cqw;height:max(3px,.9cqw);margin-top:3.2cqw;background:var(--sun);border-radius:2px}
+.pg.intro .tx p{margin:0;font:500 max(12px,3.4cqw)/1.5 var(--body);color:#2c2a23;text-wrap:pretty}
+.pg.intro .tx p:last-child{font-weight:700;color:var(--sun-ink)}
+.pg.intro .sg{display:flex;justify-content:space-between;align-items:baseline;gap:3cqw;padding-top:3cqw;border-top:1px solid #ddd5bf;font:600 max(10px,2.6cqw)/1.2 var(--body);letter-spacing:.06em;color:#8d8778}
+.pg.intro .sg span:last-child{font:700 max(12px,3.2cqw)/1 var(--display);letter-spacing:-.01em;color:var(--sun-ink)}
+.pg.ttl{background:#11110d;color:var(--paper);grid-template-rows:auto 1fr auto;padding:10% 9% 9%}
+.pg.ttl .k{font:700 max(10px,2.7cqw)/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.pg.ttl h3{align-self:center;margin:0;font:800 16cqw/.9 var(--head);letter-spacing:-.045em;color:var(--sun);overflow-wrap:anywhere}
+.pg.ttl .c{display:flex;align-items:center;gap:3cqw;font:600 max(10px,2.6cqw)/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.pg.ttl .c::before{content:"";width:9cqw;height:2px;background:var(--sun)}
+.pg.back{background:#11110d;color:var(--paper);display:grid;grid-template-rows:1fr;place-items:center;text-align:center;padding:10%}
+.pg.back .k{font:700 max(10px,2.7cqw)/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.pg.back h3{margin:3cqw 0 6cqw;font:800 12cqw/.92 var(--head);letter-spacing:-.04em;color:var(--sun)}
+.pg.back a{display:inline-block;background:var(--sun);color:var(--sun-ink);font:700 max(12px,3.6cqw)/1 var(--display);padding:3cqw 4.4cqw;border-radius:999px;text-decoration:none;cursor:pointer}
+.cbar{display:flex;align-items:center;gap:18px}
+.cb{background:var(--sun);color:var(--sun-ink);border:0;width:46px;height:46px;border-radius:50%;font:700 22px/1 var(--display);cursor:pointer;display:grid;place-items:center;transition:transform .15s,opacity .2s}
+.cb:hover{transform:scale(1.06)}
+.cb:disabled{opacity:.28;cursor:default;transform:none}
+.cmid{display:grid;justify-items:center;gap:9px;min-width:210px}
+.cct{font:700 14px/1 var(--display);letter-spacing:.04em;color:var(--paper);white-space:nowrap}
+.cprog{display:block;width:150px;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.cprog i{display:block;height:100%;width:0;background:var(--sun);transition:width .6s}
+.chint{margin:0;font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;text-align:center}
+.czoom{background:none;border:1.5px solid var(--line);color:var(--paper);font:600 13px/1 var(--display);padding:8px 13px;border-radius:999px;cursor:pointer}
+.czoom:hover{border-color:var(--sun);color:var(--sun)}
+
+/* ---------- proje sayfası ---------- */
+.proj{padding-block:44px 40px}
+.proj .top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}
+.proj .kick{display:inline-block;background:var(--sun);color:var(--sun-ink);font-family:var(--display);font-weight:700;font-size:15px;padding:6px 10px 7px;border-radius:2px;line-height:1}
+.proj h1{font-size:clamp(38px,5vw,76px);color:var(--sun);margin-top:18px;overflow-wrap:break-word;hyphens:auto}
+.proj .alt{margin:14px 0 0;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.02em;color:var(--paper)}
+.kunye{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 22px;margin:38px 0 0;padding:0;border-top:1px solid var(--line)}
+.kunye dt,.kunye dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+.kunye dt{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding-top:15px}
+.kunye dd{font-size:17px}
+.story{margin-top:40px;display:grid;gap:1.1em;max-width:60ch}
+.story p{margin:0;font-family:var(--body);font-style:normal;font-size:clamp(17px,1.4vw,19px);line-height:1.7;color:var(--paper)}
+.quote{margin:44px 0 0;padding-left:22px;border-left:3px solid var(--sun)}
+.quote p{margin:0;font-family:var(--story);font-style:italic;font-size:32px;line-height:1.15}
+.quote cite{display:block;margin-top:8px;font-style:normal;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.side{position:sticky;top:104px;display:grid;gap:20px;justify-items:center}
+.side .poster{border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.6);transform:rotate(var(--r,1.2deg));max-width:440px;width:100%;aspect-ratio:5/7}
+.side .poster img{width:100%;height:100%;object-fit:cover}
+.side .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.proj .top > *{min-width:0}
+@media (max-width:860px){.proj{padding-block:40px 30px}.proj .top{grid-template-columns:minmax(0,1fr);gap:36px}.side{position:static;order:-1;justify-items:start}.side .poster{max-width:300px}.side .row{justify-content:flex-start}}
+
+.block{padding-block:64px 0}
+.block > h2{font-size:clamp(36px,4.6vw,60px);margin-bottom:26px}
+.block > h2 span{color:var(--sun)}
+.stills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.stills img{grid-column:span 2}
+.stills img:nth-last-child(2):nth-child(3n+1),.stills img:nth-last-child(1):nth-child(3n+2),.stills img:nth-last-child(4):nth-child(3n+1),.stills img:nth-last-child(4):nth-child(3n+1) ~ img{grid-column:span 3}
+.stills.bts img{aspect-ratio:16/9}
+.stills img{width:100%;height:auto;aspect-ratio:2.48/1;object-fit:cover;border-radius:10px;filter:saturate(.9);background:var(--ink-2)}
+@media (max-width:760px){.stills{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stills img{grid-column:auto!important}}
+
+.stills img{cursor:zoom-in;transition:transform .2s,filter .2s}
+.stills img:hover{transform:translateY(-3px);filter:saturate(1.05)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(8,8,6,.94);display:grid;place-items:center;padding:calc(56px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(56px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+#lb[hidden]{display:none}
+@media (min-width:900px){#lb{padding-inline:84px}}
+#lb img{max-width:min(2200px,100%);max-height:100%;width:auto;height:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+#lb button{position:absolute;background:var(--sun);color:var(--sun-ink);border:0;width:46px;height:46px;border-radius:50%;font:700 22px/1 var(--display);cursor:pointer;display:grid;place-items:center}
+#lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
+#lb .pv{left:max(16px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+#lb .nx{right:max(16px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+#lb .ct{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--mute)}
+/* jenerik: afişteki billing block'un ekran hâli */
+.credits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 30px;padding:30px 0;border-block:1px solid var(--line)}
+.credits div{display:grid;gap:4px;min-width:0}
+.credits .r{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.credits .cast{grid-column:1/-1}
+.credits .cast ul{list-style:none;margin:6px 0 0;padding:0;columns:4 180px;column-gap:30px}
+.credits .cast li{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em;line-height:1.25;padding:5px 0;break-inside:avoid}
+.credits .cast ul.roles{columns:2 300px;column-gap:48px}
+.credits .cast ul.roles li{display:grid;grid-template-columns:minmax(0,9fr) minmax(0,11fr);gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding:9px 0}
+.credits .cast .ch{font-family:var(--body);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.credits .cast .ac{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.credits .n{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.02em;line-height:1.25}
+@media (max-width:760px){.credits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.credits{grid-template-columns:1fr}}
+
+.stats{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));border-block:1px solid var(--line)}
+.stats div{padding:26px 18px 22px;border-left:1px solid var(--line);display:grid;gap:6px}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats b{font-family:var(--head);font-weight:800;font-size:clamp(40px,4.8vw,64px);letter-spacing:-.04em;line-height:.9;color:var(--sun);font-variant-numeric:tabular-nums}
+.stats span{font-size:14px;color:var(--mute)}
+.stats[style*="--n:5"] b{font-size:clamp(34px,3.9vw,54px)}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div:nth-child(3){border-left:0;padding-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line)}.stats div:last-child:nth-child(odd){grid-column:1/-1;border-left:0;padding-left:0}}
+.topics{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.topics li{border:1.5px solid var(--line);border-radius:999px;padding:9px 15px 10px;font-size:15px;line-height:1.2}
+.topics li:hover{border-color:var(--sun);color:var(--sun)}
+
+.seasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.season{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:24px 22px;display:grid;gap:10px;align-content:start}
+.season .code{font-family:var(--head);font-weight:800;font-size:clamp(32px,3.4vw,44px);letter-spacing:-.04em;line-height:.9;color:var(--sun)}
+.season .k{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.season p{margin:0;font-size:16px;line-height:1.55;color:var(--paper)}
+@media (max-width:760px){.seasons{grid-template-columns:1fr}}
+.smini{margin-top:40px}
+.smini h3{margin:0 0 14px;font:800 clamp(26px,2.4vw,32px)/1 var(--head);letter-spacing:-.035em;color:var(--paper)}
+.smini h3 span{color:var(--sun)}
+.srow{display:grid;grid-template-columns:112px minmax(0,1fr);gap:4px 22px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
+.srow .scov{position:relative;display:block;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.45);transform:rotate(-1.5deg);transition:transform .25s,box-shadow .25s}
+.srow .scov img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px}
+.srow .scov .play{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;background:var(--sun);color:var(--sun-ink);display:grid;place-items:center;font-size:13px;padding-left:2px;opacity:0;transform:scale(.8);transition:opacity .2s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+.srow .scov:hover,.srow .scov:focus-visible{transform:rotate(0) scale(1.05);box-shadow:0 16px 34px rgba(0,0,0,.6)}
+.srow .scov:hover .play,.srow .scov:focus-visible .play{opacity:1;transform:none}
+.srow .scov:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+@media (hover:none){.srow .scov .play{opacity:1;transform:none;width:26px;height:26px;font-size:10px;right:6px;bottom:6px}}
+.srow:nth-child(odd) .scov{transform:rotate(1.5deg)}
+.srow .code{display:block;margin-bottom:6px}
+.srow:last-child{border-bottom:1px solid var(--line)}
+.srow .code{font:800 26px/1 var(--head);letter-spacing:-.035em;color:var(--sun);padding-top:2px}
+.srow .k{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.srow p{margin:0;font-size:15px;line-height:1.55;color:var(--paper)}
+@media (max-width:760px){.srow{grid-template-columns:84px minmax(0,1fr);gap:4px 16px}}
+
+.pnav{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-block:80px 110px}
+.pnav a{border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:6px;transition:border-color .2s}
+.pnav a:hover{border-color:var(--sun)}
+.pnav a.nx{text-align:right}
+.pnav .t{font-family:var(--head);font-weight:800;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.035em;line-height:1}
+@media (max-width:560px){.pnav{grid-template-columns:1fr}.pnav a.nx{text-align:left}}
+
+/* ---------- alt bant ---------- */
+.foot{background:var(--sun);color:var(--sun-ink)}
+.foot .wrap{padding-block:30px 22px;display:grid;gap:22px}
+.foot .big{font-family:var(--head);font-weight:800;font-size:clamp(34px,6vw,88px);letter-spacing:-.045em;line-height:.92}
+.foot .grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end}
+.foot .mailbox{display:grid;gap:6px}
+.foot .mailbox .m{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.03em;user-select:all;word-break:break-all}
+.foot .mailbox .loc{font-weight:600}
+.foot .copy{border-color:color-mix(in srgb,var(--sun-ink) 30%,transparent);color:var(--sun-ink);justify-self:start}
+.foot .copy:hover{border-color:var(--sun-ink)}
+.foot .soc{display:flex;flex-wrap:wrap;gap:8px}
+.foot .soc a{background:var(--sun-ink);color:var(--sun);font-family:var(--display);font-weight:700;font-size:16px;padding:10px 15px 11px;border-radius:999px;line-height:1}
+.foot .soc a:hover{background:var(--ink-2)}
+.foot .fine{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:600;border-top:1.5px solid color-mix(in srgb,var(--sun-ink) 22%,transparent);padding-top:16px}
+@media (max-width:760px){.foot .grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#ana" data-go="ana">Barkın Deniz<span>.</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="#barkin" data-go="barkin">Ben Barkın</a>
+      <a href="#isler" data-go="isler">İşler</a>
+      <a href="https://medium.com/@barkindeniz" class="ext" target="_blank" rel="noopener">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- İŞLER (ana sayfa) -->
+  <section class="view" id="v-ana">
+    <div class="wrap hero">
+      <div class="lab">Öykücü · Beyoğlu / İstanbul</div>
+      <h1>Kimse istemedi.<em>Yine de yaptım.</em></h1>
+      <div class="sub">
+        <p>Gündüz başkalarının hikâyesini satıyorum. Geceleri kendi hikâyelerimi anlatıyorum. Buradakiler gece işleri. <b>Ben sipariş ettim, ben yaptım.</b></p>
+        <a class="btn" href="#isler-liste" id="to-works">İşlere bak ↓</a>
+      </div>
+    </div>
+    <div class="wrap" id="isler-liste">
+      <div class="sec-h"><h2>İşler.</h2><p>Bir belgesel, bir ses draması,<br>bir atölye, bir podcast.</p></div>
+      <div class="works" id="works"></div>
+    </div>
+  </section>
+
+  <!-- BEN BARKIN -->
+  <section class="view" id="v-barkin">
+    <div class="wrap about">
+      <div class="txt">
+        <h1>Ben Barkın.</h1>
+        <p class="lead">Öykücüyüm. Doğduğumdan beri.</p>
+        <p>Hikâye neyi anlattığın, anlatı nasıl anlattığın; benim derdim ikincisi. Her medium'un kendi kuralları var ve ben de bu kuralları ezbere biliyorum. Bunu iyi bilmenin en gösterişli yanı, kanunları kontrollü biçimde eğip bükerek ünik anlatılar yaratabilmek.</p>
+        <p>Yazıyorum, çiziyorum, film çekiyor, müzik yapıyorum. Arada sahneye çıkıp hikâyelerimi orada anlatıyorum. Öğreniyorum, öğrendiklerimi sistemli hale getirip kendi ekolümü inşa etmeye çalışıyorum, atölye düzenliyor ve eğitimler veriyorum.</p>
+        <p>Uzun yıllar reklam sektöründe yazarlık ve yönetmenlik yaptım, hâlâ yapıyorum. Oradan elde ettiğim gelirin tümünü kendi deneysel sanat projelerime yatırıp batırıyorum. Hayatım bu döngüden ibaret. Sitede de bu projeleri paylaşacağım.</p>
+        <p class="dim">Makul biri değilim. Yine de yazacakların varsa ulaşabilirsin.</p>
+        <div class="mailrow"><span class="mail">selam@barkindeniz.com</span><button class="copy" type="button" data-copy="selam@barkindeniz.com">Kopyala</button></div>
+      </div>
+      <div class="ph"><div class="portrait" style="--r:7deg"><img src="img/barkin.webp" alt="Barkın Deniz portresi" width="916" height="1246"></div></div>
+    </div>
+  </section>
+
+  <!-- PROJE SAYFALARI -->
+  <section class="view" id="v-isler">
+    <div class="wrap wk-head"><h1>İşler<span>.</span></h1><p>İşlerim. Her biri ayrı sekmede.</p></div>
+    <div class="wrap"><div class="wtabs" id="wtabs" role="tablist" aria-label="İşler"></div></div>
+    <div class="wpane" id="p-belgesel" role="tabpanel"></div>
+    <div class="wpane" id="p-hamduyum" role="tabpanel"></div>
+    <div class="wpane" id="p-atolye" role="tabpanel"></div>
+    <div class="wpane" id="p-podcast" role="tabpanel"></div>
+  </section>
+
+  <!-- KARİKATÜR KİTAPÇIĞI (büyük boy) -->
+  <section class="view" id="v-kitap">
+    <div class="kitap-head"><a class="back" href="#podcast" data-go="podcast">← Barkın Out</a><h1>Karikatürler<span>.</span></h1></div>
+    <div class="kitap-slot" id="kitap-slot"></div>
+  </section>
+</main>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Kare"><img id="lb-img" alt=""><button class="x" type="button" aria-label="Kapat">✕</button><button class="pv" type="button" aria-label="Önceki kare">←</button><button class="nx" type="button" aria-label="Sonraki kare">→</button><div class="ct" id="lb-ct"></div></div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div class="mailbox">
+        <span class="m">selam@barkindeniz.com</span>
+        <span class="loc">Beyoğlu / İstanbul</span>
+        <button class="copy" type="button" data-copy="selam@barkindeniz.com">Adresi kopyala</button>
+      </div>
+      <div class="soc">
+        <a href="https://www.instagram.com/barkinout" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.youtube.com/barkinout" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="https://x.com/barkindeniz" target="_blank" rel="noopener">X ↗</a>
+        <a href="https://medium.com/@barkindeniz" target="_blank" rel="noopener">Medium ↗</a>
+      </div>
+    </div>
+    <div class="fine"><span>© Barkın Deniz · Öykücü</span><span>Kimse istemedi. Yine de yaptım.</span></div>
+  </div>
+</footer>
+
+<script>
+/* Bağlantısı henüz verilmemiş butonlar boş bırakıldı; adres eklenince otomatik açılır. */
+const PROJECTS = [
+  { id:"belgesel", tag:"#belgesel", title:"Öngörülemeyen Sonuçlar", alt:"Superposition · A Half-Life Documentary", img:"superposition", r:"-1.6deg", d:"Uzun metraj belgesel · 2026",
+    kunye:[["Biçim","Uzun Metraj"],["Tür","Belgesel Filmi"],["Süre","2 Saat, 35 Dakika"],["Başroller","Uğur Taşdemir, Hakan Topaloğlu"],["Gösterim","1 Ağustos 2026"],["Dil","Türkçe, İngilizce, İspanyolca"]],
+    story:["Öngörülemeyen Sonuçlar, Valve'ın efsanevi Half-Life serisinin evrenini, felsefesini ve kronolojisini enine boyuna ele alan bağımsız bir Türk belgeseli.","Oyun tarihinin en etkileyici hikâyelerinden birinin izini süren film, bilim, kaos, distopya ve direniş temalarıyla izleyiciyi Black Mesa'nın derinliklerine, Combine'ın kasvetli gölgesine ve isyanın metafizik cephesine götürüyor.","Barkın Deniz'in yazıp yönettiği, dramatik anlatısı ve sinematik diliyle öne çıkan belgesel, hikâyelerin günümüzün mitolojisine nasıl dönüşebildiğini sinema diliyle sorguluyor."],
+    quote:["This documentary is hot!","Crowbar Collective"],
+    links:[["Info","https://www.imdb.com/title/tt31155767/"],["Belgeseli izle","https://www.youtube.com/watch?v=y7n6-Qgn2BQ"]],
+    stats:[["4,9 Mn","izlenme"],["3,0 Mn","saat izlenme süresi"],["3","dil · Türkçe, İngilizce, İspanyolca"],["16","sanatçı"]],
+    stills:8,
+    credits:[["Yazar ve yönetmen","Barkın Deniz"],["Ses koordinatörü","Shockvoice"],["Oyuncular",["Shockvoice","Uğur Taşdemir","Şevval Kılınç","Ozan Can Yıldız","Mina Kabar","Taha İnci","Tunç Budak","Ozan Etuzsoy","Efe Avcı","Yaren Yıldırım","Su Erk","İrem Coşkun","Nihat Gülses","Yunus Sarıca","Taha Kaan"]]] },
+  { id:"hamduyum", tag:"#hamduyum", title:"hamduyum.", alt:"Binaural ses draması", img:"hamduyum", r:"1.4deg", d:"Deneysel ses draması · 12 bölüm", backstage:10, soon:true,
+    kunye:[["Biçim","Deneysel"],["Tür","Gerilim"],["Süre","25 Dakika, 12 Bölüm"],["Başroller","Kıvanç Kürkçü, Ali Gül, Cansu Fırıncı"]],
+    story:["Hamduyum deneysel bir ses tasarım, sanat projesidir. Diyalog, atmosfer, üç boyutlu ses tasarımları, müzik ve şiir tek bir kompozisyonda, tek bir dramaturjide aynı anda nefes alır.","İçerisinde farklı disiplinlere sahip, profesyonel sanatçıları barındırır. Yazarların metni, müzisyenlerin ritmi, oyuncuların sesi ve ses tasarımcıların mekânı eşzamanlı bir performansa dönüşür. Elliden fazla sanatçıyı bir araya getiren bu yapı, bir “kayıt” değil; kolektif bir performans şovudur.","İslami mitosla kozmik dehşeti (Lovecraftian) aynı frekansta buluşturarak neo-noir bir şehir anlatısı kurar. Orta Doğu'nun duygusal konsepti olan arabeskle, Avrupa'nın duygusal gotik konsepti arasında bir köprü oluşturarak İstanbul'un kültürel yükünü sırtlanır ve şehir bu sorumlulukla anlatılır. İstanbul'a yazılmış bir ayrılık mektubudur."],
+    links:[["Demo","https://soundcloud.com/barkindeniz/hamduyum-notlar-2-demo?in=barkindeniz/sets/hamduyum"],["Backstage","https://www.youtube.com/watch?v=A5fJEfoFHCw&list=PL8S4lK0pEQT0FQt0H6izFaQwUzotxGgL7&index=3"]],
+    credits:[["Yazan ve yöneten","Barkın Deniz"],["Uygulama","Yunus Emre Duygun"],["Ses tasarımı","Uygur Yiğit"],["Kayıt","Pas Stüdyo"],["Müzik","Kıvanç Kürkçü, Uygur Yiğit, Luxus, Batuhan Parlak"],["Grafik tasarım","Ethem Onur Bilgiç"],["Seslendirme koordinatörü","Mina Kabar"],["Asistan","Furkan Duymaç, Onur Ekin Aydın"],["Oyuncular",[["Anlatıcı","Ali Gül"],["Duman","Kıvanç Kürkçü"],["Mümtaz Bey","Cansu Fırıncı"],["Kumsal","Berfin Taş"],["Fuat","Eren Dağhan"],["Damla Hanım","Damla Nur Bozkurt"],["Ümmühan Hanım","Gül Tilkioğlu"],["Volkan Çelik","Erim Şişman"],["Melih Bey","Barkın Deniz"],["Barmen","Baturay Özdemir"],["Kaptan Pilot","Umut Metin"],["Balıkçı Hüseyin","Zınar Ataman"],["Taksici","Ali Mert Ak"],["Şevval","Saliha Keven"],["Gubse","Şevval Kılınç"],["Kamil","Doğan Çetin a.k.a. Nebuch"]]],["Özel teşekkürler","Uğur Taşdemir"]] },
+  { id:"atolye", tag:"#atölye", title:"Kahraman Yaratmak", alt:"Hikâye anlatıcılığı ve senaryo atölyesi", img:"kahraman", r:"-1deg", d:"Senaryo atölyesi · 7. dönem",
+    kunye:[["Biçim","Atölye"],["Süre","12 Saat"],["Yürütücü","Barkın Deniz"]],
+    story:["Kahraman Yaratmak, yaratıcı pratiği anlatı felsefesiyle buluşturmak üzere tasarlanmış ileri düzey bir hikâye anlatıcılığı ve senaryo yazımı atölyesidir. Katılımcılara yalnızca yazmanın araçlarını değil; yapıyı, karakter motivasyonunu, ritmi ve hikâyelerin derindeki anlamını kavrama becerisini de kazandırır. Atölye, hikâye anlatıcılığına bir düşünme biçimi, insanın kendi sesini yeniden keşfetmesinin bir yolu olarak yaklaşır.","Yedinci dönemine ulaşan Kahraman Yaratmak, üç aylık yoğun programında bugüne kadar 200'ü aşkın katılımcıyı ağırladı. Atölyeden yüz elliden fazla hikâye ve otuz uzun metraj senaryo çıktı.","Yeni temalar, analizler ve alıştırmalarla sürekli gelişen atölye, kolektif yaratıcı ruhu ve anlatının dönüştürücü gücüne olan inancıyla öne çıkıyor. Kahraman Yaratmak yalnızca hikâye yazmayı öğretmez; hikâyeler aracılığıyla dünyayı yeniden kurmayı öğretir."],
+    links:[["Demo","https://youtu.be/bLy-L7cO4FQ"],["Satın al","https://barkindeniz.gumroad.com/l/atolye"]],
+    stats:[["7.","dönem"],["200+","katılımcı"],["150+","hikâye"],["30","uzun metraj senaryo"]],
+    topics:["Neden hikâye anlatırız?","Anlatıcılığın temelleri ve terimler","Campbell'ın monomiti","Vogler'in monomiti","Karakter arketipleri ve analizi","Karakter pusulası ve kimlikse gelişim","Masallar ve elfler","Lovecraft'ın tanrısı","Sinematografi ve hareket","Senaryonun özet formları","Senaryonun yapı birimleri","Uygulamalı senaryo çalışmaları","Film okumaları"] },
+  { id:"podcast", tag:"#podcast", title:"Barkın Out", alt:"Sesli düşünme atölyem", img:"barkin-out", r:"1.8deg", d:"Podcast · 3 sezon",
+    kunye:[["Biçim","Podcast, doğaçlama performans"],["Sezonlar","DEV50, SONRAKİ25, VEDA25"],["Dinle","Apple Podcasts, Spotify"]],
+    story:["Barkın Out, dinleyicilerden gelen soruların etrafında şekillenen, doğaçlama bir performans şovu olarak başladı. Elli bölüm boyunca mizahı, hicvi ve toplumsal gözlemi aynı masada buluşturan ilk sezon, sıradan bir talk show olmanın ötesine geçerek kendine özgü bir anlatı biçimi yarattı."],
+    comic:[
+      {t:"Uyumak", p:[
+        {img:"kare-01", w:1136, h:1140, alt:"Uyumayı seviyorum."},
+        {img:"kare-02", w:1136, h:1140, alt:"Sevdiklerimi üzmeden ölmek gibi."}
+      ]},
+      {t:"Gölge", p:[
+        {img:"kare-03", w:1136, h:1139, alt:"Küçükken peşime bir şey takıldı."},
+        {img:"kare-04", w:1136, h:1139, alt:"Hızla koşmaya başladım."},
+        {img:"kare-05", w:1136, h:1139, alt:"Şimdi yirmi dokuz yaşındayım…"},
+        {img:"kare-06", w:1135, h:1139, alt:"…ve hâlâ ondan kaçabilmiş değilim."}
+      ]},
+      {t:"Date", p:[
+        {img:"kare-07", w:580, h:582, alt:"Hayvanları sever misiniz?"},
+        {img:"kare-08", w:580, h:582, alt:"…diyor bana."},
+        {img:"kare-09", w:581, h:583, alt:"Homo sapiens de bir hayvan türü."},
+        {img:"kare-10", w:578, h:582, alt:"Jaguarların…"},
+        {img:"kare-11", w:580, h:582, alt:"…sivrisineklerin…"},
+        {img:"kare-12", w:580, h:582, alt:"…mantis karideslerinin, Roman salyangozlarının…"},
+        {img:"kare-13", w:581, h:583, alt:"…ve Bülent Ecevit'in içerisinde bulunduğu bir küme hakkında yargı bekliyorsun şu an benden, anlık olarak."},
+        {img:"kare-14", w:580, h:583, alt:"Çok fazlalar."}
+      ]},
+      {t:"Patron", p:[
+        {img:"kare-15", w:769, h:771, alt:"Bacağımı incittim."},
+        {img:"kare-16", w:769, h:771, alt:"Patronum aradı. Barkın, neden işe gelmiyorsun? dedi."},
+        {img:"kare-17", w:769, h:771, alt:"Dün bacağımı incittim, dedim."},
+        {img:"kare-18", w:769, h:771, alt:"O da dedi ki: Onu sormuyorum Barkın, bir aydır neden işe gelmiyorsun?"},
+        {img:"kare-19", w:769, h:771, alt:"Buna verebilecek cevabım yoktu."}
+      ]},
+      {t:"Tavsiye", p:[
+        {img:"kare-20", w:1600, h:1605, alt:"İnsanlar sizinle iletişim kurduğu için onları kendinizle aynı boyda görüyorsunuz."},
+        {img:"kare-21", w:1600, h:1605, alt:"Sizinle aynı boyda olduğunu düşündüğünüz için tavsiye veriyorsunuz o insanlara."},
+        {img:"kare-22", w:1600, h:1605, alt:"Sonra fark ediyorsunuz ki…"},
+        {img:"kare-23", w:1600, h:1605, alt:"…meğerse o kişi oturuyormuş."}
+      ]},
+      {t:"Müzisyen", p:[
+        {img:"kare-24", w:1600, h:1606, alt:"Kısa bir yolculuk için vapura bindim. Gitar çalamayan adam…"},
+        {img:"kare-25", w:1600, h:1605, alt:"…lütfen gitar çalmayı evinde öğrenebilir misin?"},
+        {img:"kare-26", w:1600, h:1605, alt:"Vapurda…"},
+        {img:"kare-27", w:1600, h:1605, alt:"…ya da metroda."},
+        {img:"kare-28", w:1600, h:1605, alt:"Herkesin arasında gitar çalmayı öğrenmeyi bırak!"},
+        {img:"kare-29", w:1600, h:1606, alt:"Gitar çalmayı öğren ve sonra geri gel."}
+      ]},
+      {t:"Arkadaş", p:[
+        {img:"kare-30", w:1600, h:1597, alt:"Ben iyi bir insanım."},
+        {img:"kare-31", w:1600, h:1598, alt:"Arkadaşımın suya ihtiyacı olduğunda ona su…"},
+        {img:"kare-32", w:1600, h:1598, alt:"…yemeğe ihtiyacı olduğunda da yemek veririm."}
+      ]},
+      {t:"İnsan", p:[
+        {img:"kare-33", w:1600, h:1605, alt:"Kuşlar uçar."},
+        {img:"kare-34", w:1600, h:1605, alt:"Balıklar yüzer."},
+        {img:"kare-35", w:1600, h:1605, alt:"İnsanlar da içindeki boşluğu doldurmaya çalışır."}
+      ]},
+      {t:"Ben", p:[
+        {img:"kare-36", w:1600, h:1605, alt:"Size aklımın nasıl göründüğünden bahsedeyim."},
+        {img:"kare-37", w:1600, h:1605, alt:"Beynim bana benziyor…"},
+        {img:"kare-38", w:1600, h:1605, alt:"…ama benim çıplak versiyonum, ve meme uçlarına krem şanti sürmüş."},
+        {img:"kare-39", w:1600, h:1605, alt:"Yanında iki tane güzel kadın var ve konuştukça arkasından sürekli konfetiler patlıyor."},
+        {img:"kare-40", w:1600, h:1605, alt:"Ve bir roller coaster'ın en ön koltuğunda oturuyor."}
+      ]},
+      {t:"Bence", p:[
+        {img:"kare-41", w:1600, h:1605, alt:"Uzaktan film izleyip bu böyle olsaydı demek kolay."},
+        {img:"kare-42", w:1600, h:1605, alt:"Keşke şurası şöyle olsaymış."},
+        {img:"kare-43", w:1600, h:1605, alt:"Ben olsam böyle yapardım."},
+        {img:"kare-44", w:1600, h:1605, alt:"Demek kolay."},
+        {img:"kare-45", w:1600, h:1605, alt:"Hayır! Sen olsan ne yapardın biliyor musun?"},
+        {img:"kare-46", w:1600, h:1605, alt:"Tembel bir sikik gibi bu filmi sadece izleyebilirdin."},
+        {img:"kare-47", w:1600, h:1605, alt:"Ve zaten tam olarak şu an bunu yapıyorsun."}
+      ]},
+      {t:"Çalışmak", p:[
+        {img:"kare-48", w:1600, h:1605, alt:"Arada çalışmam gerekiyor."},
+        {img:"kare-49", w:1600, h:1606, alt:"Çünkü çalışmazsam evimin kirasını ödeyemiyorum."},
+        {img:"kare-50", w:1600, h:1605, alt:"Ve evimin kirasını ödeyemezsem emlakçım ve ev sahibim eşyalarımı balkondan atıyor."},
+        {img:"kare-51", w:1600, h:1606, alt:"Bunu denedim."},
+        {img:"kare-52", w:1600, h:1605, alt:"Çalışmak istemiyorum! dedim."},
+        {img:"kare-53", w:1600, h:1605, alt:"Ve ev sahibim eşyalarımı balkondan aşağı attı."},
+        {img:"kare-54", w:1600, h:1605, alt:"O koltuğu yeni almıştım."}
+      ]}
+    ],
+    stats:[["233 B","toplam dinlenme"],["100","bölüm"],["70","saat nitelikli gevezelik"],["3","sezon"],["5","yıl · 2021–2026"]],
+    links:[["No context","https://x.com/barknout"],["Cartoons","#kitap"]],
+    seasons:[["DEV50","İlk sezon · 50 bölüm · 159.589 dinlenme","Dinleyici sorularıyla şekillenen doğaçlama performans şovu. Mizah, hiciv ve toplumsal gözlem aynı masada.","sezon-dev50","https://open.spotify.com/show/49ScXg4ff141BI0jdYQFs8"],["SONRAKİ25","İkinci sezon · 25 bölüm · 50.131 dinlenme","DEV50'nin bıraktığı yerden daha sakin bir sesle. İnsan doğası, yalnızlık ve modern hayatın çelişkileri; kimi zaman bir iç ses gibi kendi kendine konuşan, kimi zaman dünyayı uzaktan ve sessizce izleyen bir ton.","sezon-sonraki25","https://open.spotify.com/show/3B2qb8tzNPnwUeTlIjV6Dz"],["VEDA25","Son sezon · 25 bölüm · 23.363 dinlenme","Sayısız hikâye ve sohbetle inşa edilen evren sessiz bir kapanışa doğru ilerliyor. Mizah yerini hüzne, düşünce kabullenişe bırakıyor; ilk iki sezondaki boşlukları kapatarak sonun hikâyesini anlatıyor.","sezon-veda25","https://open.spotify.com/show/07dWjTlFPG0b6sMje7ZBH5"]] }
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* işler ızgarası */
+document.getElementById("works").innerHTML = PROJECTS.map(p => `
+  <a class="work" href="#${p.id}" data-go="${p.id}">
+    <div class="poster" style="--r:${p.r}"><img src="img/${p.img}.webp" alt="${esc(p.title)} afişi" width="900" height="1260" loading="lazy"></div>
+    <div class="meta"><span class="tag">${p.tag}</span><span class="t">${esc(p.title)}</span><span class="d">${esc(p.d)}</span></div>
+  </a>`).join("");
+
+/* proje sayfaları */
+const btns = links => links.map(([t,u]) => u && u[0] === "#" ? `<a class="btn" href="${esc(u)}" data-go="${esc(u.slice(1))}">${esc(t)} →</a>` : u ? `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>` : `<span class="btn soon" title="Bağlantı yakında">${esc(t)} <small>yakında</small></span>`).join("");
+PROJECTS.forEach((p, i) => {
+  const prev = PROJECTS[(i + PROJECTS.length - 1) % PROJECTS.length], next = PROJECTS[(i + 1) % PROJECTS.length];
+  let extra = "";
+  if (p.stats) extra += `<div class="block"><h2>Rakamlarla<span>.</span></h2><div class="stats" style="--n:${p.stats.length}">${p.stats.map(([b,s])=>`<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("")}</div></div>`;
+  if (p.comic) extra += `<div class="block"><h2>Karikatürler<span>.</span></h2><div class="comic" id="comic">
+    <div class="book nt" id="book" tabindex="0" role="region" aria-roledescription="kitapçık" aria-label="Barkın Out karikatür kitapçığı">
+      <div class="slot l"></div><div class="slot r"></div>
+      <div class="leaf"><div class="face f"></div><div class="face b"></div></div>
+    </div>
+    <div class="cbar"><button class="cb pv" type="button" aria-label="Önceki sayfa">←</button><div class="cmid"><span class="cct" aria-live="polite">Kapak</span><span class="cprog"><i></i></span></div><button class="cb nx" type="button" aria-label="Sonraki sayfa">→</button></div>
+    <p class="chint"><span>Sayfaya tıkla, kaydır ya da ← → ile çevir.</span><button class="czoom" type="button">Kareyi büyüt ⤢</button><a class="czoom full" href="#kitap" data-go="kitap">Büyük boy aç →</a></p>
+  </div></div>`;
+  if (p.stills) extra += `<div class="block"><h2>Kareler<span>.</span></h2><div class="stills">${Array.from({length:p.stills},(_,k)=>`<img src="img/still-${k+1}.webp" data-full="img/still-${k+1}-full.webp" alt="${esc(p.title)} belgeselinden kare ${k+1}" loading="lazy" width="1280" height="516">`).join("")}</div></div>`;
+  if (p.backstage) extra += `<div class="block"><h2>Backstage<span>.</span></h2><div class="stills bts">${Array.from({length:p.backstage},(_,k)=>`<img src="img/bts-${k+1}.webp" data-full="img/bts-${k+1}-full.webp" alt="${esc(p.title)} kayıtlarından kamera arkası ${k+1}" loading="lazy" width="1280" height="720">`).join("")}</div></div>`;
+  if (p.topics) extra += `<div class="block"><h2>Program<span>.</span></h2><ul class="topics">${p.topics.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`;
+  if (p.credits) extra += `<div class="block"><h2>Jenerik<span>.</span></h2><div class="credits">${p.credits.map(([r,n])=>Array.isArray(n) ? `<div class="cast"><span class="r">${esc(r)}</span><ul class="${Array.isArray(n[0])?"roles":""}">${n.map(x=>Array.isArray(x) ? `<li><span class="ch">${esc(x[0])}</span><span class="ac">${esc(x[1])}</span></li>` : `<li>${esc(x)}</li>`).join("")}</ul></div>` : `<div><span class="r">${esc(r)}</span><span class="n">${esc(n)}</span></div>`).join("")}</div></div>`;
+  document.getElementById("p-" + p.id).innerHTML = `
+    <div class="wrap proj">
+      <div class="top">
+        <div>
+          <h2 class="ptitle">${esc(p.title)}${p.soon ? `<span class="soon-b">Yakında</span>` : ""}</h2>
+          <p class="alt">${esc(p.alt)}</p>
+          <dl class="kunye">${p.kunye.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+          <div class="story">${p.story.map(s=>`<p>${esc(s)}</p>`).join("")}</div>
+          ${p.seasons ? `<div class="smini"><h3>Sezonlar<span>.</span></h3>${p.seasons.map(([c,k,d,im,u])=>`<article class="srow"><a class="scov" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(c)} sezonunu Spotify'da dinle"><img src="img/${im}.webp" alt="Barkın Out ${esc(c)} kapağı" width="480" height="480" loading="lazy"><span class="play" aria-hidden="true">▶</span></a><div><span class="code">${esc(c)}</span><span class="k">${esc(k)}</span><p>${esc(d)}</p></div></article>`).join("")}</div>` : ""}
+          ${p.quote ? `<blockquote class="quote"><p>${esc(p.quote[0])}</p><cite>— ${esc(p.quote[1])}</cite></blockquote>` : ""}
+        </div>
+        <aside class="side">
+          <div class="poster" style="--r:${p.r}"><img src="img/${p.img}.webp" alt="${esc(p.title)} afişi" width="900" height="1260"></div>
+          <div class="row">${btns(p.links)}</div>
+        </aside>
+      </div>
+      ${extra}
+      <nav class="pnav" aria-label="Diğer işler">
+        <a href="#${prev.id}" data-go="${prev.id}"><span class="lab">← Önceki · ${esc(prev.tag)}</span><span class="t">${esc(prev.title)}</span></a>
+        <a class="nx" href="#${next.id}" data-go="${next.id}"><span class="lab">Sonraki · ${esc(next.tag)} →</span><span class="t">${esc(next.title)}</span></a>
+      </nav>
+    </div>`;
+});
+
+/* işler sekmeleri */
+document.getElementById("wtabs").innerHTML = PROJECTS.map(p => `<a class="wtab" role="tab" href="#${p.id}" data-go="${p.id}" id="t-${p.id}" aria-controls="p-${p.id}"><img src="img/${p.img}.webp" alt="" width="44" height="62"><span><span class="tg">${p.tag}</span><span class="tt">${esc(p.title)}</span></span></a>`).join("");
+
+/* yönlendirme */
+const VIEWS = ["ana","barkin","isler","kitap"], PIDS = PROJECTS.map(p => p.id);
+const TITLES = {ana:"Barkın Deniz", barkin:"Ben Barkın · Barkın Deniz", isler:"İşler · Barkın Deniz", kitap:"Karikatürler · Barkın Out · Barkın Deniz"};
+PROJECTS.forEach(p => TITLES[p.id] = `${p.title.replace(/\.$/,"")} · İşler · Barkın Deniz`);
+let curTab = "belgesel";
+function show(v, push){
+  const _lb = document.getElementById("lb"); if (_lb && !_lb.hidden){ _lb.hidden = true; document.body.style.overflow = ""; }
+  let tab = null;
+  if (PIDS.includes(v)){ tab = v; v = "isler"; }
+  else if (v === "isler") tab = curTab;
+  if (!VIEWS.includes(v)) v = "ana";
+  const CM = document.getElementById("comic");
+  if (CM){
+    if (!CM._home) CM._home = CM.parentNode;
+    const dest = v === "kitap" ? document.getElementById("kitap-slot") : CM._home;
+    if (CM.parentNode !== dest) dest.appendChild(CM);
+    CM.classList.toggle("big", v === "kitap");
+    document.body.classList.toggle("kitap-on", v === "kitap");
+    if (CM._layout) requestAnimationFrame(() => CM._layout());
+  }
+  VIEWS.forEach(x => document.getElementById("v-" + x).classList.toggle("on", x === v));
+  document.querySelectorAll(".nav a[data-go]").forEach(a => { if (a.dataset.go === v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if (tab){
+    curTab = tab;
+    PIDS.forEach(id => { document.getElementById("p-" + id).classList.toggle("on", id === tab); document.getElementById("t-" + id).setAttribute("aria-selected", id === tab ? "true" : "false"); });
+  }
+  const key = tab || v;
+  document.title = TITLES[key];
+  if (push){ try { history.pushState(null, "", "#" + key); } catch(e){} }
+  window.scrollTo({top:0, behavior:"instant"});
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-go]"); if (!a) return;
+  e.preventDefault(); show(a.dataset.go, true);
+});
+document.getElementById("to-works").addEventListener("click", e => { e.preventDefault(); document.getElementById("isler-liste").scrollIntoView({behavior:"smooth"}); });
+window.addEventListener("popstate", () => show((location.hash || "#ana").slice(1)));
+show((location.hash || "#ana").slice(1));
+
+
+/* kareler: tıklayınca büyüt */
+const LB = document.getElementById("lb"), LBI = document.getElementById("lb-img"), LBC = document.getElementById("lb-ct");
+let lbList = [], lbI = 0;
+function lbShow(i){ lbI = (i + lbList.length) % lbList.length; const im = lbList[lbI]; LBI.src = im.dataset.full || im.currentSrc || im.src; LBI.alt = im.alt; LBC.textContent = `${lbI + 1} / ${lbList.length}`; }
+function lbOpenList(list, i){ lbList = list; lbShow(i); LB.hidden = false; document.body.style.overflow = "hidden"; LB.querySelector(".x").focus(); }
+function lbOpen(img){ const l = [...img.closest(".stills").querySelectorAll("img")]; lbOpenList(l, l.indexOf(img)); }
+function lbClose(){ LB.hidden = true; document.body.style.overflow = ""; }
+document.addEventListener("click", e => { const im = e.target.closest(".stills img"); if (im) lbOpen(im); });
+LB.addEventListener("click", e => { if (e.target.closest(".pv")) lbShow(lbI - 1); else if (e.target.closest(".nx")) lbShow(lbI + 1); else if (e.target !== LBI) lbClose(); });
+document.addEventListener("keydown", e => { if (LB.hidden) return; if (e.key === "Escape") lbClose(); if (e.key === "ArrowLeft") lbShow(lbI - 1); if (e.key === "ArrowRight") lbShow(lbI + 1); });
+
+/* karikatür kitapçığı */
+(function(){
+  const root = document.getElementById("comic"); if (!root) return;
+  const STORIES = PROJECTS.find(p => p.comic).comic, P = [{t:"cover"}, {t:"intro"}], ART = [];
+  const INTRO = {
+    title: "No context.",
+    text: [
+      "Barkın Out'ta hiçbir şey yazılı değildi. Mikrofonu açtım, konuştum. Beş yıl, yüz bölüm boyunca.",
+      "Bu kitaptaki her cümle o yayınlardan. Doğaçlama, ağzımdan çıktığı gibi, bağlamından koparılmış. Söylerken düşünmedim, düşünürken söyledim.",
+      "Sonra bu cümleler çizildi. Bağlamı olmayan her cümleye bir dünya kuruldu."
+    ],
+    sign: "Barkın Deniz",
+    credit: "Çizimler: @finnscribbles"
+  };
+  STORIES.forEach((st, si) => {
+    P.push({t:"title", s:si, name:st.t, cnt:st.p.length});
+    st.p.forEach(c => { P.push({t:"art", s:si, ai:ART.length, ...c}); ART.push(c); });
+  });
+  P.push({t:"back"});
+  const N = P.length, M = ART.length, IN = N - 2;
+  const book = root.querySelector(".book"), SL = book.querySelector(".slot.l"), SR = book.querySelector(".slot.r");
+  const LEAF = book.querySelector(".leaf"), FF = LEAF.querySelector(".f"), FB = LEAF.querySelector(".b");
+  const PV = root.querySelector(".pv"), NX = root.querySelector(".nx"), CT = root.querySelector(".cct"), PR = root.querySelector(".cprog i");
+  const RM = matchMedia("(prefers-reduced-motion: reduce)");
+  const D = 860, E = "cubic-bezier(.42,.03,.26,1)";
+  let spread = null, pos = 0, busy = false, pw = 0, inView = false;
+  const ZL = ART.map(c => ({src:`img/${c.img}.webp`, alt:c.alt, dataset:{}}));
+  const PRE = new Set();
+  function preload(from, to){ for (let k = Math.max(0, from); k <= Math.min(N - 1, to); k++){ const p = P[k]; if (p.t === "art" && !PRE.has(k)){ PRE.add(k); new Image().src = `img/${p.img}.webp`; } } }
+  new Image().src = "img/cizgi-kapak.webp";
+
+  function pg(k, side){
+    const p = P[k]; if (!p) return "";
+    if (p.t === "cover") return `<div class="pg cover ${side}"><div><span class="k">Barkın Out Podcast</span><h3>Barkın<br>Out.</h3></div><div class="fr"><img src="img/cizgi-kapak.webp" alt="Barkın Out karakterleri kamp ateşi başında, kırmızı dolunayın altında" width="1600" height="900" draggable="false"></div><div class="ft"><span>Karikatürler</span><span>${STORIES.length} hikâye</span></div></div>`;
+    if (p.t === "back") return `<div class="pg back ${side}"><div><span class="k">Devamı</span><h3>Instagram'da.</h3><a href="https://www.instagram.com/barkinoutpodcast" target="_blank" rel="noopener">@barkinoutpodcast ↗</a></div></div>`;
+    if (p.t === "intro") return `<div class="pg intro ${side}"><span class="k">Önsöz</span><div class="tx"><h3>${esc(INTRO.title)}</h3>${INTRO.text.map(t => `<p>${esc(t)}</p>`).join("")}</div><div class="sg"><span>${esc(INTRO.credit)}</span><span>— ${esc(INTRO.sign)}</span></div></div>`;
+    if (p.t === "title") return `<div class="pg ttl ${side}"><span class="k">Hikâye ${String(p.s + 1).padStart(2, "0")} / ${String(STORIES.length).padStart(2, "0")}</span><h3>${esc(p.name)}.</h3><span class="c">${p.cnt} kare</span></div>`;
+    return `<div class="pg ${side}"><div class="art"><img src="img/${p.img}.webp" alt="${esc(p.alt)}" width="${p.w}" height="${p.h}" draggable="false"></div><div class="no">${k}</div></div>`;
+  }
+  const BLANK = `<div class="pg L blank"></div>`;
+  function setSlot(el, k, side){ el.innerHTML = pg(k, side); el.classList.toggle("empty", !P[k]); }
+  const maxPos = () => spread ? Math.floor(N / 2) : N - 1;
+  const shiftFor = s => !spread ? 0 : (2 * s - 1 < 0 ? -pw / 2 : (2 * s >= N ? pw / 2 : 0));
+
+  function label(ks){
+    const inner = ks.filter(k => k > 0 && k < N - 1);
+    if (!inner.length) return ks.includes(0) ? "Kapak" : "Arka kapak";
+    const a = inner[0], b = inner[inner.length - 1];
+    const nm = P[a].t === "intro" ? "Önsöz" : STORIES[P[b].s].t;
+    return `${nm} · ${a === b ? a : a + "–" + b} / ${IN}`;
+  }
+  function render(){
+    if (spread){ setSlot(SL, 2 * pos - 1, "L"); setSlot(SR, 2 * pos, "R"); SL.hidden = false; }
+    else { setSlot(SR, pos, "R"); SL.hidden = true; }
+    book.style.transform = `translateX(${shiftFor(pos)}px)`;
+    CT.textContent = label(spread ? [2 * pos - 1, 2 * pos] : [pos]);
+    PR.style.width = (maxPos() ? pos / maxPos() * 100 : 0) + "%";
+    PV.disabled = pos <= 0; NX.disabled = pos >= maxPos();
+    const c = spread ? 2 * pos : pos; preload(c - 3, c + 4);
+  }
+  function layout(){
+    const W = root.clientWidth; if (!W) return;
+    const sp = W >= 820, vh = innerHeight;
+    if (busy) return;
+    if (spread !== null && sp !== spread){ pos = sp ? Math.floor((pos + 1) / 2) : (2 * pos < N ? 2 * pos : 2 * pos - 1); }
+    spread = sp;
+    const big = root.classList.contains("big");
+    root.classList.toggle("side", big && sp);
+    pw = Math.floor(big
+      ? (sp ? Math.min((W - 150) / 2, 1000, (vh - 140) / 1.12) : Math.min(W, 720, (vh - 190) / 1.12))
+      : (sp ? Math.min(W / 2, 600, vh * 0.8 / 1.12) : Math.min(W, 560, vh * 0.72 / 1.12)));
+    root.style.setProperty("--bh", Math.round(pw * 1.12) + "px");
+    book.classList.add("nt");
+    book.style.setProperty("--pw", pw + "px"); book.style.setProperty("--ph", Math.round(pw * 1.12) + "px");
+    book.style.setProperty("--bw", (sp ? 2 * pw : pw) + "px"); book.style.setProperty("--rx", (sp ? pw : 0) + "px");
+    render();
+    requestAnimationFrame(() => requestAnimationFrame(() => book.classList.remove("nt")));
+  }
+  function run(from, to, fade){
+    LEAF.classList.add("on");
+    const kf = fade === 1 ? [{transform:`rotateY(${from}deg)`, opacity:1}, {transform:"rotateY(-90deg)", opacity:1, offset:.5}, {transform:`rotateY(${to}deg)`, opacity:0}]
+             : fade === -1 ? [{transform:`rotateY(${from}deg)`, opacity:0}, {transform:"rotateY(-90deg)", opacity:1, offset:.5}, {transform:`rotateY(${to}deg)`, opacity:1}]
+             : [{transform:`rotateY(${from}deg)`}, {transform:`rotateY(${to}deg)`}];
+    const a = LEAF.animate(kf, {duration:D, easing:E, fill:"both"});
+    LEAF.querySelectorAll(".sh").forEach(sh => sh.animate([{opacity:0}, {opacity:1, offset:.5}, {opacity:0}], {duration:D, easing:E}));
+    return a.finished.then(() => a);
+  }
+  function flip(dir){
+    if (busy || !spread && spread !== false) return;
+    const np = pos + dir; if (np < 0 || np > maxPos()) return;
+    if (RM.matches){ pos = np; render(); return; }
+    busy = true;
+    let job;
+    if (spread){
+      if (dir > 0){
+        FF.innerHTML = pg(2 * pos, "R") + '<i class="sh"></i>'; FB.innerHTML = (pg(2 * pos + 1, "L") || BLANK) + '<i class="sh"></i>';
+        setSlot(SR, 2 * pos + 2, "R"); job = run(0, -180, 0);
+      } else {
+        FB.innerHTML = pg(2 * pos - 1, "L") + '<i class="sh"></i>'; FF.innerHTML = pg(2 * pos - 2, "R") + '<i class="sh"></i>';
+        setSlot(SL, 2 * pos - 3, "L"); job = run(-180, 0, 0);
+      }
+      book.style.transform = `translateX(${shiftFor(np)}px)`;
+    } else {
+      if (dir > 0){ FF.innerHTML = pg(pos, "R") + '<i class="sh"></i>'; FB.innerHTML = BLANK + '<i class="sh"></i>'; setSlot(SR, pos + 1, "R"); job = run(0, -180, 1); }
+      else { FF.innerHTML = pg(pos - 1, "R") + '<i class="sh"></i>'; FB.innerHTML = BLANK + '<i class="sh"></i>'; job = run(-180, 0, -1); }
+    }
+    CT.textContent = label(spread ? [2 * np - 1, 2 * np] : [np]);
+    PR.style.width = np / maxPos() * 100 + "%";
+    job.then(a => { pos = np; render(); LEAF.classList.remove("on"); a.cancel(); busy = false; });
+  }
+  PV.addEventListener("click", () => flip(-1));
+  NX.addEventListener("click", () => flip(1));
+  root.querySelector("button.czoom").addEventListener("click", () => {
+    let k = Math.max(0, spread ? 2 * pos - 1 : pos);
+    while (k < N && P[k].t !== "art") k++;
+    lbOpenList(ZL, k < N ? P[k].ai : M - 1);
+  });
+  let px = 0, py = 0, down = false;
+  book.addEventListener("pointerdown", e => { if (e.target.closest("a")) return; down = true; px = e.clientX; py = e.clientY; });
+  book.addEventListener("pointercancel", () => down = false);
+  book.addEventListener("pointerup", e => {
+    if (!down) return; down = false;
+    const dx = e.clientX - px, dy = e.clientY - py;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){ flip(dx < 0 ? 1 : -1); return; }
+    if (Math.abs(dx) > 10 || Math.abs(dy) > 10) return;
+    const r = book.getBoundingClientRect(), x = e.clientX - r.left;
+    flip(x < r.width * (spread ? .5 : .35) ? -1 : 1);
+  });
+  book.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); flip(1); } });
+  document.addEventListener("keydown", e => {
+    if (!LB.hidden || !inView || !root.offsetParent) return;
+    if (e.target.closest && e.target.closest("input,textarea")) return;
+    if (e.key === "ArrowRight"){ e.preventDefault(); flip(1); }
+    if (e.key === "ArrowLeft"){ e.preventDefault(); flip(-1); }
+  });
+  new IntersectionObserver(es => es.forEach(x => inView = x.isIntersecting), {threshold:.35}).observe(book);
+  root._layout = layout;
+  new ResizeObserver(() => layout()).observe(root);
+  addEventListener("resize", () => layout());
+  layout();
+})();
+
+/* kopyala */
+document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const t = b.dataset.copy, label = b.textContent;
+  const done = ok => { b.textContent = ok ? "Kopyalandı" : "Seçip kopyala"; setTimeout(() => b.textContent = label, 1800); };
+  try { navigator.clipboard.writeText(t).then(() => done(true), () => done(false)); } catch(err){ done(false); }
+}));
+</script>
+</body>
+</html>
